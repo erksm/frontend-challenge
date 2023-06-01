@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import '../source/styles/index.scss';
 import FetchComics from '../services/FetchComics';
 import ComicCard from '../components/ComicCard';
-import MiniCart from "../components/MiniCart";
 
 const ComicList = () => {
   const [data, setData] = useState([]);
@@ -19,7 +18,6 @@ const ComicList = () => {
 
   return (
     <div className="comic-container">
-      <MiniCart />
       {data.map((item) => {
         const thumbUrl = item.thumbnail.path + '.' + item.thumbnail.extension;
         return (

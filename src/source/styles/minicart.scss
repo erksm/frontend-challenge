@@ -1,0 +1,28 @@
+@import "./variables.scss";
+
+.minicart__icon {
+    z-index: 1;
+    margin-left: auto;
+    position: relative;
+
+    a {
+        display: block;
+        line-height: 10px;
+    }
+
+    .counter {
+        border-radius: 50%;
+        position: absolute;
+        margin-top: -10px;
+        margin-left: -18px;
+        background: red;
+        color: #fff;
+        padding: 4px 6px;
+        font-weight: bold;
+    }
+
+    svg {
+        font-size: 30px;
+        color: $base-red;
+    }
+}

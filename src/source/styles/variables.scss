@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Marvel:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+// Variables //
+
+$base-red: #e62429;
+
+body {
+    margin: 0;
+    font-family: 'Marvel', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+    text-decoration: none;
+}
+
+.block__container {
+    max-width: 1440px;
+    width: 100%;
+    margin: 0 auto;
+    padding: auto 15px;
+}
