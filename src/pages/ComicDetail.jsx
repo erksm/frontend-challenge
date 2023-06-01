@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import FetchComics from '../services/FetchComics';
 import AddToCart from '../components/AddToCart';
+import '../source/styles/comic-detail.scss';
 
 const ComicDetails = () => {
   const { id } = useParams();
@@ -22,14 +23,14 @@ const ComicDetails = () => {
   const thumbUrl = comic.thumbnail?.path + '.' + comic.thumbnail?.extension;
 
   return (
-    <div>
-      <div id={comic.id}>
+    <div id={comic.id} className='block__container block__comic--details'>
         <img src={thumbUrl} ></img>
-        <h1>Titulo: {comic.title}</h1>
-        <p>Preço: {comic.prices[0].price}</p>
-        <p>Descriçao: {comic.description}</p>
-        <AddToCart id={comic.id}/>
-      </div>
+        <div className='block__comic--detail--content'>
+          <h1 className='block__comic--detail--title'>{comic.title}</h1>
+          <div className="block__comic--price">{comic.prices[0].price}</div>
+          <p className="block__comic--description">{comic.description}</p>
+          <AddToCart id={comic.id}/>
+        </div>
     </div>
   );
 }

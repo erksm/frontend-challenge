@@ -23,6 +23,10 @@
         align-items: center;
         justify-content: center;
 
+        &:hover {
+            box-shadow: rgba(0, 0, 0, 0.30) 9px 5.95px 4.95px;
+        }
+
         svg {
             font-size: 20px;
             margin-right: 5px;
