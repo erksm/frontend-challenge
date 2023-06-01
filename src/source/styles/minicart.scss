@@ -15,10 +15,11 @@
         position: absolute;
         margin-top: -10px;
         margin-left: -18px;
-        background: red;
-        color: #fff;
+        background: $base-red;
+        color: $white-color;
         padding: 4px 6px;
         font-weight: bold;
+        font-family: $secondary-font;
     }
 
     svg {

@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import FetchComics from '../services/FetchComics';
 import { getItem, setItem } from '../services/LocalStorage';
-import MiniCart from "../components/MiniCart";
 import Cupom from "../components/Cupom";
 
 const CheckoutPage = () => {
@@ -46,7 +45,6 @@ const CheckoutPage = () => {
     
     return(
         <div className="checkour-container">
-            <MiniCart />
             <div className="items-container">
                 <div className="items-box">
                     {data.map((item) => {

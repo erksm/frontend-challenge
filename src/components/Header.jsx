@@ -7,7 +7,9 @@ const Header = () => {
     return(
         <header>
             <div className="block__container block__header">
-                <Link to={'/'} className="header__logo"><span>MARVEL</span> <span>Comics Store</span></Link>
+                <div className="header__logo">
+                    <Link to={'/'}><span>MARVEL</span> <span>Comics Store</span></Link>
+                </div>
                 <MiniCart />
             </div>
         </header>

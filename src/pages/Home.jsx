@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import '../source/styles/index.scss';
+import '../source/styles/home.scss';
 import FetchComics from '../services/FetchComics';
 import ComicCard from '../components/ComicCard';
 
@@ -17,7 +17,7 @@ const ComicList = () => {
   }
 
   return (
-    <div className="comic-container">
+    <div className="block__container main__container">
       {data.map((item) => {
         const thumbUrl = item.thumbnail.path + '.' + item.thumbnail.extension;
         return (

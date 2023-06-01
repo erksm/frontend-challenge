@@ -1,0 +1,54 @@
+@import "./variables.scss";
+
+.block__comic {
+    width: 100%;
+    max-width: 350px;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 30px 15px 15px;
+    box-sizing: border-box;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    margin: 0 auto;
+
+    a {
+        width: 100%;
+    }
+    
+    .block__comic--image {
+        width: 100%;
+        height: 300px;
+        margin-bottom: 20px;
+    }
+
+    img {
+        max-width: 100%;
+        max-height: 100%;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 6px 12px;
+        margin: 0 auto;
+        display: block;
+    }
+
+    .block__comic--title {
+        text-align: center;
+        font-size: 26px;
+        margin-bottom: 0;
+    }
+
+    .block__comic--price {
+        text-align: center;
+        margin-top: 20px;
+        font-weight: bold;
+        font-size: 20px;    
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width: 769px) {
+    .block__comic {
+        max-width: calc(25% - 40px);
+
+        .block__comic--title {
+            min-height: 70px;
+        }
+    }
+}

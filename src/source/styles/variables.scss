@@ -1,12 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Marvel:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
 
 // Variables //
 
+$base-color: #000;
 $base-red: #e62429;
+$white-color: #fff;
+$primary-font: 'Roboto', sans-serif;
+$secondary-font: 'Marvel', sans-serif;
 
 body {
+    color: $base-color;
     margin: 0;
-    font-family: 'Marvel', sans-serif;
+    font-family: $primary-font;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -15,9 +21,20 @@ a {
     text-decoration: none;
 }
 
+h1, h2, h3 {
+    font-family: $secondary-font;
+    font-weight: bold;
+    color: $base-color;
+}
+
 .block__container {
     max-width: 1440px;
     width: 100%;
     margin: 0 auto;
     padding: auto 15px;
+}
+
+.main__container {
+    padding: 60px 15px 30px;
+    box-sizing: border-box;
 }
