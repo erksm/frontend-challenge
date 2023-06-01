@@ -1,0 +1,16 @@
+@import "./variables.scss";
+
+footer {
+    background-color: #000;
+    width: 100%;
+    bottom: 0;
+}
+
+.block__footer--container {
+    box-sizing: border-box;
+    color: #ffffff;
+    padding: 10px 15px;
+    text-align: center;
+    font-family: $secondary-font;
+    font-size: 20px;
+}

@@ -2,34 +2,35 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import FetchComics from '../services/FetchComics';
 import AddToCart from '../components/AddToCart';
+import Loader from '../components/Loader';
 import '../source/styles/comic-detail.scss';
 
 const ComicDetails = () => {
   const { id } = useParams();
-  const [comic, setComic] = useState(null);
+  const [data, setdata] = useState(null);
 
   useEffect(() => {
     FetchComics(id).then((response) => {
-      setComic(response[0]);
+      setdata(response[0]);
     });
   }, []);
 
-  console.log('detail', comic)
+  console.log('detail', data)
 
-  if (!comic) {
-    return <div>Loading...</div>;
+  if (!data) {
+    return <Loader />;
   }
 
-  const thumbUrl = comic.thumbnail?.path + '.' + comic.thumbnail?.extension;
+  const thumbUrl = data.thumbnail?.path + '.' + data.thumbnail?.extension;
 
   return (
-    <div id={comic.id} className='block__container block__comic--details'>
-        <img src={thumbUrl} ></img>
+    <div id={data.id} className='block__container block__comic--details'>
+        <img src={thumbUrl && thumbUrl} ></img>
         <div className='block__comic--detail--content'>
-          <h1 className='block__comic--detail--title'>{comic.title}</h1>
-          <div className="block__comic--price">{comic.prices[0].price}</div>
-          <p className="block__comic--description">{comic.description}</p>
-          <AddToCart id={comic.id}/>
+          <h1 className='block__comic--detail--title'>{data.title}</h1>
+          <div className="block__comic--price">{data.prices[0].price}</div>
+          <p className="block__comic--description">{data.description}</p>
+          <AddToCart id={data.id}/>
         </div>
     </div>
   );

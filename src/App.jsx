@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import ComicDetail from './pages/ComicDetail';
 import CheckoutPage from './pages/CheckoutPage';
 import Header from './components/Header';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path="/comic-detail/:id" element={<ComicDetail/>} />
           <Route path="/checkout" element={<CheckoutPage/>} />
         </Routes>
+        <Footer />
     </BrowserRouter>
   );
 }

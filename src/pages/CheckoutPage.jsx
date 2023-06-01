@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import FetchComics from '../services/FetchComics';
 import { getItem, setItem } from '../services/LocalStorage';
 import Cupom from "../components/Cupom";
+import Loader from "../components/Loader";
 
 const CheckoutPage = () => {
     const [data, setData] = useState([]);
@@ -40,8 +41,8 @@ const CheckoutPage = () => {
     }
     
     if (!data) {
-        return <div>Loading...</div>;
-    }
+        return <Loader />;
+      }
     
     return(
         <div className="checkour-container">

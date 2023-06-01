@@ -9,6 +9,12 @@ $white-color: #fff;
 $primary-font: 'Roboto', sans-serif;
 $secondary-font: 'Marvel', sans-serif;
 
+#root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
 body {
     color: $base-color;
     margin: 0;
@@ -32,9 +38,17 @@ h1, h2, h3 {
     width: 100%;
     margin: 0 auto;
     padding: auto 15px;
+    flex-grow: 1;
 }
 
 .main__container {
     padding: 60px 15px 30px;
     box-sizing: border-box;
+}
+
+.loader-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }

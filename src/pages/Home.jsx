@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import '../source/styles/home.scss';
 import FetchComics from '../services/FetchComics';
 import ComicCard from '../components/ComicCard';
+import Loader from "../components/Loader";
 
 const ComicList = () => {
   const [data, setData] = useState([]);
@@ -13,7 +14,7 @@ const ComicList = () => {
   }, []);
 
   if (!data) {
-    return <div>Loading...</div>;
+    return <Loader />;
   }
 
   return (
