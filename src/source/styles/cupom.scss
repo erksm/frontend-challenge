@@ -1,0 +1,51 @@
+@import "./variables.scss";
+
+.form.form--cupom {
+    margin-bottom: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 300px;
+    margin-left: auto;
+    text-align: left;
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+
+.form__input {
+    display: block;
+    padding: 8px 16px;
+    line-height: 25px;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: inherit;
+    border-radius: 6px;
+    color: $base-color;
+    border: 1px solid $base-color;
+    background: $white-color;
+    transition: border .3s ease;
+    width: calc(100% - 130px);
+}
+
+.form__submit {
+    margin-left: -5px;
+    width: 100px;
+    background: $base-red;
+    color: $white-color;
+    border: none;
+    text-transform: uppercase;
+    padding: 0 20px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.cupom--message {
+    width: 100%;
+    font-size: 14px;
+    margin: 0;
+    margin-top: 10px;
+    color: $base-red;
+    
+    &.valid {
+        color: green;
+    }
+}

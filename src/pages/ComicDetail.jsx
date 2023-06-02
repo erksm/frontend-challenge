@@ -22,13 +22,14 @@ const ComicDetails = () => {
   }
 
   const thumbUrl = data.thumbnail?.path + '.' + data.thumbnail?.extension;
+  const price = data.prices[0].price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})
 
   return (
     <div id={data.id} className='block__container block__comic--details'>
         <img src={thumbUrl && thumbUrl} ></img>
         <div className='block__comic--detail--content'>
           <h1 className='block__comic--detail--title'>{data.title}</h1>
-          <div className="block__comic--price">{data.prices[0].price}</div>
+          <div className="block__comic--price">{price}</div>
           <p className="block__comic--description">{data.description}</p>
           <AddToCart id={data.id}/>
         </div>

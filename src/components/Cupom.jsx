@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import '../source/styles/cupom.scss';
 
 const Cupom = ({ applyCoupon }) => {
     const [couponCode, setCouponCode] = useState('');
@@ -13,31 +14,32 @@ const Cupom = ({ applyCoupon }) => {
         event.preventDefault();
         cupoms.find(((cupomItem) => {
             if (couponCode === cupomItem.text) {
-                console.log(couponCode, cupomItem.text)
+                console.log(couponCode, cupomItem.text);
                 const cupomValue = cupomItem.value;
                 const isValid = true;
                 setShowMsg(true);
-                setCupomMsg('Cupom Válido');
-                applyCoupon(cupomValue, isValid)
+                setCupomMsg(true);
+                applyCoupon(cupomValue, isValid);
                 return true;
             }
             const isValid = false;
             setShowMsg(true);
-            setCupomMsg('Cupom Inválido');
+            setCupomMsg(false);
             applyCoupon(isValid)
         }))
     };
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className='form form--cupom'>
             <input
                 type="text"
                 value={couponCode}
                 onChange={handleChange}
-                placeholder="Enter coupon code"
+                placeholder="Insira seu cupom"
+                className='form__input'
             />
-            <button type="submit">Apply</button>
-            {showMsg && <p>{cupomMsg}</p>}
+            <button type="submit" className='form__submit'>Aplicar</button>
+            {showMsg && <p className={cupomMsg ? 'cupom--message valid' : 'cupom--message'} >{cupomMsg ? 'Cupom válido' : 'Cupom inválido'}</p>}
         </form>
     );
 };

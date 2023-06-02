@@ -1,0 +1,121 @@
+@import "./variables.scss";
+
+.block__checkout {
+    padding: 30px 15px;
+}
+
+.block__checkout--box {
+    max-width: 500px;
+    margin: 0 auto 40px;
+}
+
+.block__checkout--item {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    position: relative;
+    border-top: 1px solid #ddd;
+    padding: 20px 0;
+    
+    &:last-child {
+        border-bottom: 1px solid #ddd;
+    }
+
+    .thumb {
+        max-width: 60px;
+        display: block;
+        
+        img {
+            width: 100%;
+            max-width: 100%;
+            max-height: 80px;
+        }
+    }
+   
+    .info {
+        padding-left: 30px;
+        max-width: 50%;
+    }
+
+    .price {
+        display: block;
+        margin-top: 10px;
+        font-weight: bold;
+    }
+
+    .qty {
+        margin-left: auto;
+    }
+
+    .btn--remove {
+        display: block;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        
+        button {
+            width: 30px;
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+        }
+    }
+}
+
+.block__checkout--info {
+    text-align: right;
+    max-width: 500px;
+    margin: 0 auto 40px;
+}
+
+.block--total {
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+    margin-left: auto;
+    font-size: 16px;
+}
+
+.subtotal, 
+.discount,
+.total {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 15px;
+
+    span {
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+}
+
+.total {
+    border-top: 1px solid;
+    margin-top: 10px;
+    padding-top: 20px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+@media only screen and (min-width: 769px) {
+    .block__checkout {
+        display: flex;
+        padding: 60px 15px;
+        gap: 60px;
+    }
+
+    .block__checkout--info {
+        min-width: 300px;
+        max-height: 350px;
+        background: #FAFAFA;
+        padding: 30px 20px;
+        box-sizing: border-box;
+        margin-top: 60px;
+        border-radius: 10px;
+    }
+
+    .block__checkout--box {
+        max-width: 100%;
+    }
+}
