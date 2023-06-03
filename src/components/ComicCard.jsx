@@ -3,11 +3,14 @@ import AddToCart from "./AddToCart";
 import '../source/styles/comic-card.scss';
 
 const ComicDetails = ({ comicData }) => {
-    const { id, thumbUrl, title, price } = comicData;
+    const { id, thumbUrl, title, price, rare } = comicData;
     const formatedPrice = price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
 
   return (
     <div className="block block__comic" id={id}>
+      {rare && 
+        <div className="block__rare--tag">Quadrinho Raro</div>
+      }
       <Link to={`comic-detail/${id}`}>
         <div className="block__comic--image">
           <img src={thumbUrl} ></img>

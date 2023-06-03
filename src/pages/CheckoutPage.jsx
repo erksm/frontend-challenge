@@ -1,16 +1,17 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import FetchComics from '../services/FetchComics';
-import { getItem, setItem } from '../services/LocalStorage';
-import Cupom from "../components/Cupom";
+import Coupon from "../components/Coupon";
 import Loader from "../components/Loader";
 import { BsFillTrash3Fill } from 'react-icons/bs';
 import '../source/styles/checkout.scss';
+import { useDispatch, useSelector } from "react-redux";
+import { removeCartItem } from '../redux/slices/cartSlice';
 
 const CheckoutPage = () => {
+    const dispatch = useDispatch();
+    const cartItems = useSelector((state) => state.cart.items);
     const [data, setData] = useState([]);
-    const [cupomValue, setCupomValue] = useState();
-    const [totalFinal, setTotalFinal] = useState();
-    const cartItems = getItem('cart') || [];
+    const [couponValue, setCouponValue] = useState(0);
 
     useEffect(() => {
         FetchComics().then((response) => {
@@ -24,40 +25,54 @@ const CheckoutPage = () => {
             }));
             setData(filterItem)
         });
-    }, []);
+    }, [cartItems]);
 
-    const totals = data.reduce((acc, item) => acc + item.total, 0);
-
-    const applyCoupon = (cupomValue, isValid) => {
-        console.log('isValid', isValid);
-        setCupomValue(cupomValue);
-        isValid && isValid ? setTotalFinal(totals - cupomValue) : setTotalFinal(totals);
-    };
-    
-    useEffect(() => {
-        setTotalFinal(totals);
+    const totals = useMemo(() => {
+        return data.reduce((acc, item) => acc + item.total, 0);
     }, [data]);
 
+    const totalNormal = useMemo(() => {
+        return data.reduce((acc, item) => {
+            let sum = acc;
+            if (!item.rare) {
+                sum += item.total;
+            }
+            return sum;
+        }, 0);
+    }, [data]);
+
+    const applyCoupon = (isValid, couponValue, rareCoupon) => {
+        const total = rareCoupon ? totals : totalNormal;
+        const couponTotals = (total * (couponValue / 100));
+        if (!isValid) {
+            setCouponValue(0);
+            return;
+        }
+        setCouponValue(couponTotals);
+    };
+
     const removeItem = (id) => {
-        const newFilterItem = data.filter((obj) => obj.id !== id);
-        setItem('cart', newFilterItem);
-        setData(newFilterItem)
+        dispatch(removeCartItem({ id }));
     }
 
-    const formatedTotals = totals && totals.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
-    const formatedCupomValue = cupomValue && cupomValue.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
-    const formatedTotalFinal = totalFinal && totalFinal.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
-    
+    const totalFinal = useMemo(() => {
+        return totals - couponValue;
+    }, [totals, couponValue]);
+
+    const formatedTotals = totals && totals.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
+    const formatedCouponValue = couponValue && couponValue.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
+    const formatedTotalFinal = totalFinal && totalFinal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
+
     if (!data) {
         return <Loader />;
     }
 
-      return(
-          <div className="block__container block__checkout">
+    return (
+        <div className="block__container block__checkout">
             <div className="block__checkout--box">
                 <h1>Resumo da compra </h1>
                 {data.map((item) => {
-                    const formatedPrice = item.prices[0].price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
+                    const formatedPrice = item.prices[0].price.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
                     const thumbUrl = item.thumbnail.path + '.' + item.thumbnail.extension;
                     return (
                         <div className="block__checkout--item" key={item.id}>
@@ -68,6 +83,9 @@ const CheckoutPage = () => {
                                 <span className="title">
                                     {item.title}
                                 </span>
+                                {item.rare &&
+                                    <span className="item rare">Quadrinho Raro</span>
+                                }
                                 <span className="price">
                                     {formatedPrice}
                                 </span>
@@ -82,14 +100,14 @@ const CheckoutPage = () => {
             </div>
             <div className="block__checkout--info">
                 <h2>Resumo do pedido</h2>
-                <Cupom applyCoupon={applyCoupon} />
+                <Coupon applyCoupon={applyCoupon} data={data} />
                 <div className="block--total">
                     <div className="subtotal">
                         <span>Subtotal:</span> {formatedTotals}
                     </div>
-                    {formatedCupomValue &&
+                    {!!formatedCouponValue &&
                         <div className="discount">
-                            <span>Desconto:</span> {formatedCupomValue}
+                            <span>Desconto:</span> {formatedCouponValue}
                         </div>
                     }
                     <div className="total">

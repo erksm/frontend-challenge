@@ -9,6 +9,7 @@
     box-sizing: border-box;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     margin: 0 auto;
+    position: relative;
 
     a {
         width: 100%;
@@ -40,6 +41,16 @@
         font-weight: bold;
         font-size: 20px;    
         width: 100%;
+    }
+
+    .block__rare--tag {
+        position: absolute;
+        right: -15px;
+        top: -20px;
+        background: gold;
+        padding: 10px 15px;
+        border-radius: 7px;
+        font-weight: bold;
     }
 }
 

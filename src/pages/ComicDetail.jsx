@@ -15,8 +15,6 @@ const ComicDetails = () => {
     });
   }, []);
 
-  console.log('detail', data)
-
   if (!data) {
     return <Loader />;
   }
@@ -29,6 +27,7 @@ const ComicDetails = () => {
         <img src={thumbUrl && thumbUrl} ></img>
         <div className='block__comic--detail--content'>
           <h1 className='block__comic--detail--title'>{data.title}</h1>
+          {data.rare && <div className="block__rare-tag">Quadrinho Raro</div> }
           <div className="block__comic--price">{price}</div>
           <p className="block__comic--description">{data.description}</p>
           <AddToCart id={data.id}/>

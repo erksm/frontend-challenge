@@ -20,9 +20,9 @@ const ComicList = () => {
   return (
     <div className="block__container main__container">
       {data.map((item) => {
-        const thumbUrl = item.thumbnail.path + '.' + item.thumbnail.extension;
+        const thumbUrl = item.thumbnail.path + '/portrait_uncanny' + '.' + item.thumbnail.extension;
         return (
-          <ComicCard comicData={{ id: item.id, title: item.title, thumbUrl: thumbUrl, price: item.prices[0].price}} />
+          <ComicCard comicData={{ id: item.id, title: item.title, thumbUrl: thumbUrl, price: item.prices[0].price, rare: item.rare}} />
         )
       })}
     </div>

@@ -1,25 +1,15 @@
 import { useState } from 'react';
-import { getItem, setItem } from '../services/LocalStorage';
 import { IoCartOutline } from 'react-icons/io5';
 import '../source/styles/addtocart.scss';
+import { useDispatch } from "react-redux";
+import { addCartItem } from '../redux/slices/cartSlice';
 
 const AddToCart = ({ id }) => {
+    const dispatch = useDispatch();
     const [qty, setQty] = useState(1);
     
     const handleComic = () => {
-        const cart = getItem('cart') || [];
-        const itemFound = cart.find((cartItem) => {
-           return cartItem.id === id;
-        });
-
-        if (itemFound) {
-            itemFound.qty += qty;
-        } else {
-            const comicData = {id, qty};
-            cart.push(comicData)
-        }
-
-        setItem('cart', cart);
+        dispatch(addCartItem({id, qty}));
     }
 
     const handleQuantityChange = (e) => {

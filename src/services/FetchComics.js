@@ -15,9 +15,18 @@ const FetchComics = async (id) => {
     if (id) {
         apiUrl += `/${id}`;
     }
-    apiUrl += `?ts=${timeStamp}&apikey=${publicKey}&hash=${md5Hash}`;
+    apiUrl += `?ts=${timeStamp}&apikey=${publicKey}&hash=${md5Hash}&limit=40`;
     const response = await fetch(apiUrl);
     const jsonData = await response.json();
+    jsonData.data.results.forEach(item => {
+        item.rare = false;
+    });
+    const shuffledArray = jsonData.data.results.sort(() => 0.5 - Math.random());
+    const tenPercent = Math.floor(shuffledArray.length * 0.1);
+    const tenPercentResult = shuffledArray.slice(0, tenPercent);
+    tenPercentResult.forEach(item => {
+        item.rare = true;
+    });
     setItem(storageKey, jsonData.data.results);
     return jsonData.data.results;
 };

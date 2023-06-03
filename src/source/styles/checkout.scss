@@ -37,10 +37,14 @@
         max-width: 50%;
     }
 
-    .price {
+    .price, .rare {
         display: block;
         margin-top: 10px;
         font-weight: bold;
+    }
+
+    .rare {
+        color: goldenrod;
     }
 
     .qty {
@@ -99,6 +103,11 @@
 }
 
 @media only screen and (min-width: 769px) {
+    .block__checkout--box {
+        max-width: 50%;
+        width: 100%;
+    }
+
     .block__checkout {
         display: flex;
         padding: 60px 15px;
@@ -113,9 +122,5 @@
         box-sizing: border-box;
         margin-top: 60px;
         border-radius: 10px;
-    }
-
-    .block__checkout--box {
-        max-width: 100%;
     }
 }

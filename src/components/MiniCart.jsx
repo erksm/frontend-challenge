@@ -2,9 +2,10 @@ import { Link } from 'react-router-dom';
 import { getItem } from '../services/LocalStorage';
 import { CgShoppingCart } from 'react-icons/cg';
 import '../source/styles/minicart.scss';
+import { useSelector } from 'react-redux';
 
 const MiniCart = () => {
-    const cartItems = getItem('cart') || [];
+    const cartItems = useSelector((state) => state.cart.items);
     const cartQty = cartItems.reduce((acc, item) => acc + item.qty, 0);
     
     return(
