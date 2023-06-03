@@ -4,11 +4,15 @@
 // Variables //
 
 $base-color: #000;
-$base-red: #e62429;
 $base-green: green;
-$white-color: #fff;
+$base-red: #e62429;
+$base-gray-dark: #ddd;
+$base-gray-light: #FAFAFA;
+$base-yellow: gold;
+$base-yellow-dark: goldenrod;
 $primary-font: 'Roboto', sans-serif;
 $secondary-font: 'Marvel', sans-serif;
+$white-color: #fff;
 
 #root {
     display: flex;
@@ -18,8 +22,8 @@ $secondary-font: 'Marvel', sans-serif;
 
 body {
     color: $base-color;
-    margin: 0;
     font-family: $primary-font;
+    margin: 0;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -29,46 +33,45 @@ a {
 }
 
 h1, h2, h3 {
+    color: $base-color;
     font-family: $secondary-font;
     font-weight: bold;
-    color: $base-color;
 }
 
 .block__container {
-    max-width: 1440px;
-    width: 100%;
-    margin: 0 auto;
     box-sizing: border-box;
     flex-grow: 1;
+    margin: 0 auto;
+    max-width: 1440px;
+    width: 100%;
 }
 
 .main__container {
-    padding: 60px 15px 30px;
     box-sizing: border-box;
+    padding: 60px 15px 30px;
 }
 
 .loader-icon {
+    left: 50%;
     position: absolute;
     top: 50%;
-    left: 50%;
     transform: translate(-50%, -50%);
 }
 
 @mixin block_primary--button {
+    align-items: center;
     background: linear-gradient(45deg, transparent 5%, $base-red 5%);
-    padding: 10px;
-    max-width: 200px;
-    width: 100%;
-    display: block;
-    margin: 0 auto;
     border: none;
     color: $white-color;
     cursor: pointer;
-    font-weight: bold;
-    text-transform: uppercase;
     display: flex;
-    align-items: center;
+    font-weight: bold;
     justify-content: center;
+    margin: 0 auto;
+    max-width: 200px;
+    padding: 10px;
+    text-transform: uppercase;
+    width: 100%;
   
     &:hover {
         box-shadow: rgba(0, 0, 0, 0.30) 9px 5.95px 4.95px;

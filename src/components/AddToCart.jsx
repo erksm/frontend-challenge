@@ -7,9 +7,9 @@ import '../source/styles/addtocart.scss';
 const AddToCart = ({ id }) => {
     const dispatch = useDispatch();
     const [qty, setQty] = useState(1);
-    
+
     const handleComic = () => {
-        dispatch(addCartItem({id, qty}));
+        dispatch(addCartItem({ id, qty }));
     }
 
     const handleQuantityChange = (e) => {
@@ -23,7 +23,7 @@ const AddToCart = ({ id }) => {
 
     const decreaseQuantity = () => {
         if (qty > 1) {
-        setQty(qty - 1);
+            setQty(qty - 1);
         }
     };
 

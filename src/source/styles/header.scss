@@ -1,13 +1,13 @@
 @import "./variables.scss";
 
 header {
-    width: 100%;
     background: $white-color;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     display: flex;
     justify-content: center;
     position: sticky;
     top: 0;
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    width: 100%;
     z-index: 9;
 }
 
@@ -19,37 +19,37 @@ header {
 .header__logo {
     display: flex;
     justify-content: center;
-    position: absolute;
     left: 0;
+    position: absolute;
     right: 0;
     
     a {
         color: $base-red;
         display: table;
-        font-size: 20px;
-        text-transform: uppercase;
+        font-family: $secondary-font;
+        font-size: 1.25rem;
         font-weight: bold;
         line-height: 30px;
-        font-family: $secondary-font;
+        text-transform: uppercase;
     }
 
     span:first-child {
         background: $base-red;
-        padding: 6px;
         color: $white-color;
+        padding: 6px;
     }
 
     span:last-child {
+        background-color: $white-color;
         border: 1px solid $base-red;
         padding: 5px;
-        background-color: $white-color;
     }
 }
 
 @media only screen and (min-width: 769px) {
     .header__logo {
         a {
-            font-size: 30px;
+            font-size: 1.87rem;
         }
     }
 }

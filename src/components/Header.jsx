@@ -4,7 +4,7 @@ import '../source/styles/header.scss';
 import '../source/styles/variables.scss';
 
 const Header = () => {
-    return(
+    return (
         <header>
             <div className="block__container block__header">
                 <div className="header__logo">

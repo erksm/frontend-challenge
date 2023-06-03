@@ -1,9 +1,9 @@
 @import "./variables.scss";
 
 .minicart__icon {
-    z-index: 1;
     margin-left: auto;
     position: relative;
+    z-index: 1;
 
     a {
         display: block;
@@ -11,19 +11,19 @@
     }
 
     .counter {
+        background: $base-red;
         border-radius: 50%;
+        color: $white-color;
+        font-weight: bold;
+        font-family: $secondary-font;
         position: absolute;
         margin-top: -10px;
         margin-left: -18px;
-        background: $base-red;
-        color: $white-color;
         padding: 4px 6px;
-        font-weight: bold;
-        font-family: $secondary-font;
     }
 
     svg {
-        font-size: 30px;
         color: $base-red;
+        font-size: 1.87rem;
     }
 }

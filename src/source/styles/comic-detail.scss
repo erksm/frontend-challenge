@@ -1,14 +1,14 @@
 @import "./variables.scss";
 
 .block__comic--details {
-    padding: 60px 15px;
     box-sizing: border-box;
+    padding: 60px 15px;
 
     img {
-        margin: 0 auto;
         display: block;
-        max-width: 100%;
+        margin: 0 auto;
         max-height: 600px;
+        max-width: 100%;
     }   
 }
 
@@ -17,16 +17,16 @@
 }
 
 .block__comic--detail--title {
-    font-size: 40px;
+    font-size: 2.5rem;
 }
 
 .block__comic--price {
-    font-size: 30px;
+    font-size: 1.87rem;
     font-weight: bold;
 }
 
 .block__comic--description {
-    font-size: 18px;
+    font-size: 1.12rem;
     line-height: 26px;
 }
 
@@ -37,8 +37,8 @@
     }
 
     .block__comic--details img {
-        max-width: 40%;
         margin: 0;
+        max-width: 40%;
     }
 
     .block__comic--detail--content {

@@ -71,12 +71,12 @@ const CheckoutPage = () => {
         return <Loader />;
     }
 
-    if(!data.length) {
+    if (!data.length) {
         return (
             <div className="block__container block__checkout">
                 <div className="block__empty--cart">
                     <h1>Resumo da compra </h1>
-                   <p>Não há items nos seu carrinho de compras</p> 
+                    <p>Não há items nos seu carrinho de compras</p>
                 </div>
             </div>
         )

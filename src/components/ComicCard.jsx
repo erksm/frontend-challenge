@@ -4,23 +4,23 @@ import '../source/styles/comic-card.scss';
 
 const ComicDetails = ({ comicData }) => {
     const { id, thumbUrl, title, price, rare } = comicData;
-    const formatedPrice = price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
+    const formatedPrice = price.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
 
-  return (
-    <div className="block block__comic" id={id}>
-      {rare && 
-        <div className="block__rare--tag">Quadrinho Raro</div>
-      }
-      <Link to={`comic-detail/${id}`}>
-        <div className="block__comic--image">
-          <img src={thumbUrl} ></img>
+    return (
+        <div className="block block__comic" id={id}>
+            {rare &&
+                <div className="block__rare--tag">Quadrinho Raro</div>
+            }
+            <Link to={`comic-detail/${id}`}>
+                <div className="block__comic--image">
+                    <img src={thumbUrl} ></img>
+                </div>
+                <h2 className="block__comic--title">{title}</h2>
+            </Link>
+            <div className="block__comic--price">{formatedPrice}</div>
+            <AddToCart id={id} />
         </div>
-        <h2 className="block__comic--title">{title}</h2>
-      </Link>
-      <div className="block__comic--price">{formatedPrice}</div>
-      <AddToCart id={id}/>
-    </div>
-  );
+    );
 }
 
 export default ComicDetails;

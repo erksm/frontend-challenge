@@ -6,34 +6,34 @@ import Loader from '../components/Loader';
 import '../source/styles/comic-detail.scss';
 
 const ComicDetails = () => {
-  const { id } = useParams();
-  const [data, setdata] = useState(null);
+    const { id } = useParams();
+    const [data, setdata] = useState(null);
 
-  useEffect(() => {
-    FetchComics(id).then((response) => {
-      setdata(response[0]);
-    });
-  }, []);
+    useEffect(() => {
+        FetchComics(id).then((response) => {
+            setdata(response[0]);
+        });
+    }, []);
 
-  if (!data) {
-    return <Loader />;
-  }
+    if (!data) {
+        return <Loader />;
+    }
 
-  const thumbUrl = data.thumbnail?.path + '.' + data.thumbnail?.extension;
-  const price = data.prices[0].price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})
+    const thumbUrl = data.thumbnail?.path + '.' + data.thumbnail?.extension;
+    const price = data.prices[0].price.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })
 
-  return (
-    <div id={data.id} className='block__container block__comic--details'>
-        <img src={thumbUrl && thumbUrl} ></img>
-        <div className='block__comic--detail--content'>
-          <h1 className='block__comic--detail--title'>{data.title}</h1>
-          {data.rare && <div className="block__rare-tag">Quadrinho Raro</div> }
-          <div className="block__comic--price">{price}</div>
-          <p className="block__comic--description">{data.description}</p>
-          <AddToCart id={data.id}/>
+    return (
+        <div id={data.id} className='block__container block__comic--details'>
+            <img src={thumbUrl && thumbUrl} ></img>
+            <div className='block__comic--detail--content'>
+                <h1 className='block__comic--detail--title'>{data.title}</h1>
+                {data.rare && <div className="block__rare-tag">Quadrinho Raro</div>}
+                <div className="block__comic--price">{price}</div>
+                <p className="block__comic--description">{data.description}</p>
+                <AddToCart id={data.id} />
+            </div>
         </div>
-    </div>
-  );
+    );
 }
 
 export default ComicDetails;

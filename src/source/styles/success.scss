@@ -1,9 +1,9 @@
 @import "./variables.scss";
 
 .block__success {
-    padding: 150px 20px;
-    margin: 0 auto;
     display: table;
+    margin: 0 auto;
+    padding: 150px 20px;
     width: auto;
 
     h1 {
@@ -15,7 +15,7 @@
 @media only screen and (min-width: 769px) {
     .block__success {
         h1 {
-            font-size: 50px;
+            font-size: 3rem;
         }
     }
 }

@@ -25,7 +25,7 @@ export const cartSlice = createSlice({
                 return;
             }
 
-            const comicData = {id, qty};
+            const comicData = { id, qty };
             state.items.push(comicData);
             setItem(localStorageKey, state.items);
         },

@@ -3,7 +3,7 @@ import '../source/styles/coupon.scss';
 import FetchCoupons from '../services/FetchCoupons';
 
 const Coupon = ({ applyCoupon, data }) => {
-    const [couponCode, setCouponCode ] = useState('');
+    const [couponCode, setCouponCode] = useState('');
     const [showMsg, setShowMsg] = useState(false);
     const [couponValid, setCouponValid] = useState();
     const coupons = FetchCoupons();
