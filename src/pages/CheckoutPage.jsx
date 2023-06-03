@@ -1,11 +1,11 @@
-import { useEffect, useMemo, useState } from "react";
 import FetchComics from '../services/FetchComics';
-import Coupon from "../components/Coupon";
-import Loader from "../components/Loader";
+import { useEffect, useMemo, useState } from "react";
 import { BsFillTrash3Fill } from 'react-icons/bs';
-import '../source/styles/checkout.scss';
 import { useDispatch, useSelector } from "react-redux";
 import { removeCartItem } from '../redux/slices/cartSlice';
+import Coupon from "../components/Coupon";
+import Loader from "../components/Loader";
+import '../source/styles/checkout.scss';
 
 const CheckoutPage = () => {
     const dispatch = useDispatch();
@@ -55,6 +55,10 @@ const CheckoutPage = () => {
         dispatch(removeCartItem({ id }));
     }
 
+    const cartClear = () => {
+        window.location.replace('/success');
+    }
+
     const totalFinal = useMemo(() => {
         return totals - couponValue;
     }, [totals, couponValue]);
@@ -65,6 +69,17 @@ const CheckoutPage = () => {
 
     if (!data) {
         return <Loader />;
+    }
+
+    if(!data.length) {
+        return (
+            <div className="block__container block__checkout">
+                <div className="block__empty--cart">
+                    <h1>Resumo da compra </h1>
+                   <p>Não há items nos seu carrinho de compras</p> 
+                </div>
+            </div>
+        )
     }
 
     return (
@@ -114,6 +129,7 @@ const CheckoutPage = () => {
                         <span>Total:</span> {formatedTotalFinal}
                     </div>
                 </div>
+                <button onClick={cartClear} className="block__place--order--btn">Finalizar Compra</button>
             </div>
         </div>
     )

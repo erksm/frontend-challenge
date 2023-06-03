@@ -5,6 +5,7 @@ import ComicDetail from './pages/ComicDetail';
 import CheckoutPage from './pages/CheckoutPage';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import SuccessPage from './pages/SuccessPage';
 
 function App() {
   return (
@@ -13,7 +14,8 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route path="/comic-detail/:id" element={<ComicDetail/>} />
-          <Route path="/checkout" element={<CheckoutPage/>} />
+          <Route exact path="/checkout" element={<CheckoutPage/>} />
+          <Route exact path="/success" element={<SuccessPage/>} />
         </Routes>
         <Footer />
     </BrowserRouter>

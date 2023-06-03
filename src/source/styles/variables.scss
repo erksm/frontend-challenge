@@ -5,6 +5,7 @@
 
 $base-color: #000;
 $base-red: #e62429;
+$base-green: green;
 $white-color: #fff;
 $primary-font: 'Roboto', sans-serif;
 $secondary-font: 'Marvel', sans-serif;
@@ -52,3 +53,29 @@ h1, h2, h3 {
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
+@mixin block_primary--button {
+    background: linear-gradient(45deg, transparent 5%, $base-red 5%);
+    padding: 10px;
+    max-width: 200px;
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+    border: none;
+    color: $white-color;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    &:hover {
+        box-shadow: rgba(0, 0, 0, 0.30) 9px 5.95px 4.95px;
+    }
+  
+    svg {
+        font-size: 20px;
+        margin-right: 5px;
+    }
+  }

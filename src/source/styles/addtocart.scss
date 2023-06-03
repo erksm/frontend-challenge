@@ -7,29 +7,11 @@
     margin-top: auto;
     gap: 20px;
 
-    .block.block__addtocart-button {
-        background: linear-gradient(45deg, transparent 5%, $base-red 5%);
-        padding: 10px;
-        max-width: 200px;
-        width: 100%;
-        display: block;
-        margin: 0 auto;
-        border: none;
-        color: $white-color;
-        cursor: pointer;
-        font-weight: bold;
-        text-transform: uppercase;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+    .block__addtocart-button {
+        @include block_primary--button();
 
-        &:hover {
-            box-shadow: rgba(0, 0, 0, 0.30) 9px 5.95px 4.95px;
-        }
-
-        svg {
-            font-size: 20px;
-            margin-right: 5px;
+        a {
+            color: $white-color;
         }
     }
 }

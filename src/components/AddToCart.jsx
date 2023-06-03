@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { IoCartOutline } from 'react-icons/io5';
-import '../source/styles/addtocart.scss';
 import { useDispatch } from "react-redux";
 import { addCartItem } from '../redux/slices/cartSlice';
+import '../source/styles/addtocart.scss';
 
 const AddToCart = ({ id }) => {
     const dispatch = useDispatch();

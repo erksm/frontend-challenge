@@ -9,6 +9,10 @@
     margin: 0 auto 40px;
 }
 
+.block__empty--cart {
+    padding-left: 80px;
+}
+
 .block__checkout--item {
     display: flex;
     align-items: flex-start;
@@ -102,6 +106,11 @@
     font-size: 20px;
 }
 
+.block__place--order--btn {
+    @include block_primary--button();
+    margin-top: 30px;
+}
+
 @media only screen and (min-width: 769px) {
     .block__checkout--box {
         max-width: 50%;
@@ -116,7 +125,7 @@
 
     .block__checkout--info {
         min-width: 300px;
-        max-height: 350px;
+        max-height: 400px;
         background: #FAFAFA;
         padding: 30px 20px;
         box-sizing: border-box;

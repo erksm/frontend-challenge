@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { getItem, setItem, removeItem } from "../../services/LocalStorage";
+import { getItem, setItem } from "../../services/LocalStorage";
 
 const localStorageKey = 'cart';
 const items = getItem(localStorageKey) || [];
@@ -37,13 +37,7 @@ export const cartSlice = createSlice({
         },
         clearCart: (state, action) => {
             state.items = [];
-        },
-        addCoupon: (state, action) => {
-            const { coupon } = action.payload;
-            setItem('couponCode', coupon || '');
-        },
-        removeCoupon: (state, action) => {
-            removeItem('couponCode');
+            setItem(localStorageKey, '');
         }
     },
 })
