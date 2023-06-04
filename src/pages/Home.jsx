@@ -22,7 +22,7 @@ const ComicList = () => {
             {data.map((item) => {
                 const thumbUrl = item.thumbnail.path + '/portrait_uncanny' + '.' + item.thumbnail.extension;
                 return (
-                    <ComicCard comicData={{ id: item.id, title: item.title, thumbUrl: thumbUrl, price: item.prices[0].price, rare: item.rare }} />
+                    <ComicCard key={item.id} comicData={{ id: item.id, title: item.title, thumbUrl: thumbUrl, price: item.prices[0].price, rare: item.rare }} />
                 )
             })}
         </div>

@@ -11,7 +11,7 @@ const FetchComics = async (id) => {
     const publicKey = 'a2e333d3af5b15f0eb2c11ce4d7ba9c1';
     const privateKey = 'b3ef270cb59b71177875e817c0b75b8e5f221089';
     const md5Hash = md5(timeStamp + privateKey + publicKey);
-    let apiUrl = 'http://gateway.marvel.com/v1/public/comics';
+    let apiUrl = 'https://gateway.marvel.com/v1/public/comics';
     if (id) {
         apiUrl += `/${id}`;
     }
